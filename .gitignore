@@ -1,0 +1,72 @@
+# Created by https://www.gitignore.io/api/linux,python,django
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+
+# Project files and directories
+
+files/
+
+# Project pycache
+orcid_project/__pycache__/
+
+# App pycache
+public_api/__pycache__/
+public_api/migrations/__pycache__/
+public_api/migrations/*.py
+
+rest/__pycache__/
+rest/migrations/__pycache__/
+rest/migrations/*.py
+
+local_settings.py
+db.sqlite3
+media
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+
+# Translations
+*.pot
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# PyCharm
+.idea/
+
+# Virtualenv
+venv/
+.env

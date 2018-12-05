@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Head section starts here -->
+<head>
+  <title>OrcID</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<!-- Head section ends here -->
+
+<!-- Body section starts here -->
+<body>
+  <!-- header section starts here-->
+        <div class="container" align="center">
+            <br>
+            <h3 align="center" class="shadow_inner">ORCID@Charité Universitätsmedizin Berlin - Create and Link ORCID to Charite Scientists</h3><br>
+            <div class="jumbotron" align="center">
+                <!-- pages -->
+                <ul class="nav nav-tabs nav-justified">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                     <li><a href="https://orcid.org" target="_blank">About ORCID</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- header section ends here -->
+
+<!-- CONTENT BLOCK -->
+{% block content %}
+
+{% endblock %}
+<!-- END OF CONTENT BLOCK -->
+
+
+
+
+
+
+</body>
+<!-- Body section ends here -->
+</html>
