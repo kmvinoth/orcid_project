@@ -1,0 +1,37 @@
+Things to consider when scaling it up
+*************************************
+
+1. First step is separate users into two groups
+    (1.1)  Users having ORCiD
+    (1.2) Users not having ORCiD
+
+2. Personal Customization (such as prefilled Firstname, Lastename and Email address) of the link to the users in group 1.2
+
+3. How are going to send these personalized emails to two groups?
+
+4. Check for duplicate ORCiD
+
+5. OAUTh Implementation
+
+
+Heroku APP
+**********
+User signup link
+https://sandbox.orcid.org/signin?oauth&client_id=APP-E422WM33OPZWKKMQ&response_type=code&scope=/authenticate&redirect_uri=http://orcid-createondemand.herokuapp.com/oauth-redirect.php&show_login=false
+
+After clicking Register button they are redirected to the below link
+https://sandbox.orcid.org/oauth/authorize?oauth&client_id=APP-E422WM33OPZWKKMQ&response_type=code&scope=/authenticate&redirect_uri=http://orcid-createondemand.herokuapp.com/oauth-redirect.php&show_login=false
+
+After clicking Authorize button
+http://orcid-createondemand.herokuapp.com/oauth-redirect.php?code=qcWCh4
+
+
+
+When user Deny the access
+Redirect to useful page
+http://kmvinoth.pythonanywhere.com/?error=access_denied&error_description=User%20denied%20access
+
+
+http://localhost:9000/redirect_uri?error=access_denied&error_description=User%20denied%20access
+
+http://localhost:9000/redirect_uri?code=180UUM
