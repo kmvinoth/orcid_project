@@ -1,0 +1,22 @@
+    {% extends "base.html" %}
+
+    <!-- CONTENT BLOCK -->
+    {% block content %}
+
+        <div class="container">
+
+        {% if errors %}
+            <ul>
+                {%  for error in errors %}
+                    <li>{{ error }} </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+                <h1 align="center">ORCiD@Charité Universitätsmedizin Berlin</h1>
+                <h2 align="center">Thanks, .</h2>
+                <h3 align="center">You have successfully created an ORCiD and linked it to Charité Universitätsmedizin Berlin.</h3>
+            </div>
+
+    {% endblock %}
+    <!-- END OF CONTENT BLOCK -->
