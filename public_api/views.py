@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import requests
 import json
-
+from .models import OrcidTable
 
 def home(request):
     """
@@ -30,14 +30,44 @@ def uri_redirect(request):
             payload = {'client_id': 'APP-3KOPX9UB987ZI77S',
                        'client_secret': 'cb2f45f9-2776-4971-9818-9a63d4ef02e0',
                        'grant_type': 'authorization_code',
-                       'code': auth_code, 'redirect_uri': 'http://localhost/public_api/redirect'}
+                       'code': auth_code, 'redirect_uri': 'http://localhost:9000/public_api/redirect'}
 
             headers = {'Accept': 'application/json'}
 
-            r = requests.post(API_ENDPOINT, data=payload, headers=headers)
+            response = requests.post(API_ENDPOINT, data=payload, headers=headers)
 
-            print("Status code for post data = ", r.status_code)
+            if response.status_code != 200:
+                print("Error posting data to ORCiD sandbox")
 
-            return render(request, 'public_api/redirect.html', {'authorization_code': auth_code})
+                print("Message = ", response.text)
+
+                print("Status code for post data = ", response.status_code)
+
+            else:
+
+                print("Status code for post data = ", response.status_code)
+
+                # data is of type dict
+                data = response.json()
+
+                print("TYPE INFO = ", type(data))
+
+                print("Response data = ", response.json())
+
+                # data_keys = list(data.keys())
+
+                orcid_inst = OrcidTable(access_token=data['access_token'],
+                                        token_type=data['token_type'],
+                                        refresh_token=data['refresh_token'],
+                                        expires_in=data['expires_in'],
+                                        scope=data['scope'],
+                                        full_name=data['name'],
+                                        orcid=data['orcid'])
+                orcid_inst.save()
+                sandbox_url = "https://sandbox.orcid.org/" + data["orcid"]
+                return render(request, 'public_api/redirect.html', {'authorization_code': auth_code,
+                                                                    'fullname': data['name'],
+                                                                    "orcid": data['orcid'],
+                                                                    "sandbox_url": sandbox_url})
     else:
         return render(request, 'public_api/redirect.html', {'errors': errors})
