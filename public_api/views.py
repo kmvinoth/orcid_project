@@ -50,9 +50,9 @@ def uri_redirect(request):
                 # data is of type dict
                 data = response.json()
 
-                print("TYPE INFO = ", type(data))
-
-                print("Response data = ", response.json())
+                # print("TYPE INFO = ", type(data))
+                #
+                # print("Response data = ", response.json())
 
                 # data_keys = list(data.keys())
 
@@ -69,5 +69,11 @@ def uri_redirect(request):
                                                                     'fullname': data['name'],
                                                                     "orcid": data['orcid'],
                                                                     "sandbox_url": sandbox_url})
+    if 'error' in request.GET:
+
+        err = request.GET['error']
+        # print("Error = ", err)
+        return render(request, 'public_api/user_denied_access.html')
+
     else:
         return render(request, 'public_api/redirect.html', {'errors': errors})
