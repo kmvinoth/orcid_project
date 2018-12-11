@@ -9,6 +9,7 @@ __pycache__/
 # Project files and directories
 
 files/
+inspect_models.py
 
 # Project pycache
 orcid_project/__pycache__/
