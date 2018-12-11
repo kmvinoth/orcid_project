@@ -7,7 +7,7 @@ Things to consider when scaling it up
 
 2. Personal Customization (such as prefilled Firstname, Lastename and Email address) of the link to the users in group 1.2
 
-3. How are going to send these personalized emails to two groups?
+3. How are you going to send these personalized emails to two groups?
 
 4. Check for duplicate ORCiD
 
