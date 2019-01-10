@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 import json
+from decouple import config
 from .models import OrcidTable
 
 def home(request):
@@ -28,8 +29,8 @@ def uri_redirect(request):
 
             API_ENDPOINT = "https://sandbox.orcid.org/oauth/token"
 
-            payload = {'client_id': 'APP-3KOPX9UB987ZI77S',
-                       'client_secret': 'cb2f45f9-2776-4971-9818-9a63d4ef02e0',
+            payload = {'client_id': config('CLIENT_ID'),
+                       'client_secret': config('CLIENT_SECRET'),
                        'grant_type': 'authorization_code',
                        'code': auth_code, 'redirect_uri': 'https://science-it.charite.de/orcid/public_api/redirect'}
 
