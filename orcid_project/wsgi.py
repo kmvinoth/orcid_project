@@ -14,3 +14,6 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'orcid_project.settings')
 
 application = get_wsgi_application()
+
+os.environ["http_proxy"] = "http://proxy.charite.de:8080"
+os.environ["https_proxy"] = "http://proxy.charite.de:8080" 
