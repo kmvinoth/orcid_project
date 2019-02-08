@@ -144,15 +144,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11.15/howto/static-files/
-
-STATICFILES_DIRS = ["/mnt/u/s-it/orcid_project/public_api/static"]
-
-STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-
-# INTERNAL_IPS = ('127.0.0.1',)  # for django-debug-toolbar

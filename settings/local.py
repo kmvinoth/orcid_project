@@ -21,6 +21,12 @@ DATABASES = {
 
 INTERNAL_IPS = ('127.0.0.1',)  # for django-debug-toolbar
 
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATICFILES_DIRS = ["/mnt/u/s-it/orcid_project/public_api/static/public_api/"]
+
 if DEBUG:
     # Charite Email settings (working)
     # EMAIL_HOST = 'exchange-smtp.charite.de'
