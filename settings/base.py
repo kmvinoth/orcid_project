@@ -42,12 +42,28 @@ INSTALLED_APPS = [
     # Apps Developed locally
     'public_api',
     'requests',
+    'crispy_forms',
+    'multiselectfield',
     # 'rest',
     # Third party apps
     # 'django_python3_ldap',
-    # 'rest_framework',
+    'rest_framework',
     # 'corsheaders',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,6 +149,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11.15/howto/static-files/
 
+STATICFILES_DIRS = ["/mnt/u/s-it/orcid_project/public_api/static"]
+
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # INTERNAL_IPS = ('127.0.0.1',)  # for django-debug-toolbar

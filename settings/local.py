@@ -1,8 +1,9 @@
 from .base import *
+from decouple import config
 
 DEBUG = True
 
-INSTALLED_APPS += ['debug_toolbar', ]
+INSTALLED_APPS += ['debug_toolbar',  ]
 
 MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
 
@@ -19,3 +20,19 @@ DATABASES = {
 }
 
 INTERNAL_IPS = ('127.0.0.1',)  # for django-debug-toolbar
+
+if DEBUG:
+    # Charite Email settings (working)
+    # EMAIL_HOST = 'exchange-smtp.charite.de'
+    # EMAIL_PORT = 587
+    # EMAIL_HOST_USER = config('CHARITE_USER')
+    # EMAIL_HOST_PASSWORD = config('CHARITE_PASSWORD')
+    # EMAIL_USE_TLS = True
+
+    # Local SMTP SERVER
+    EMAIL_HOST = 'localhost'
+    EMAIL_PORT = 1025
+    EMAIL_HOST_USER = ''
+    EMAIL_HOST_PASSWORD = ''
+    EMAIL_USE_TLS = False
+    DEFAULT_FROM_EMAIL = 'testing@example.com'
