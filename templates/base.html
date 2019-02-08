@@ -4,31 +4,65 @@
 <html lang="en">
 <!-- Head section starts here -->
 <head>
-  <title>OrcID</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>OrcID</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static "css/style.css" %}"  type="text/css">
 
 </head>
 <!-- Head section ends here -->
 
 <!-- Body section starts here -->
 <body>
-  <!-- header section starts here-->
-        <div class="container" align="center">
-            <br>
-            <h3 align="center" class="shadow_inner">ORCID@Charité Universitätsmedizin Berlin - Create and Link ORCID to Charite Scientists</h3><br>
-            <div class="jumbotron" align="center">
-                <!-- pages -->
-                <ul class="nav nav-tabs nav-justified">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                     <li><a href="https://orcid.org" target="_blank">About ORCID</a></li>
-                </ul>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4" id="charite-logo">
+                    <a href="https://www.charite.de"> <img src="{% static "images/ChariteLogo.jpg" %}" class="img-responsive" alt="charite_logo">  </a>
+                </div>
+
+                <div class="col-sm-4 text-justify" id="header-text">
+                    <h1>ORCiD@Charité</h1>
+                </div>
+
+                <div class="col-sm-4" id="orcid-logo">
+                    <a href="https://orcid.org/"> <img src="{% static "images/ORCID_only.png" %}" class="img-responsive" width="210" height="80" alt="orcid_logo"> </a>
+                </div>
+
             </div>
+          </div>
+
+    </header>
+
+
+<!-- Nav bar starts here-->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+{#            <a class="navbar-brand" href="https://www.charite.de">Charité#}
+                {#                <img src="{% static "public_api/ChariteLogo.jpg" %}" width="30" height="30" class="d-inline-block align-top" alt="" >#}
+{#            </a>#}
         </div>
-        <!-- header section ends here -->
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="https://orcid.org/about/what-is-orcid/mission">About ORCiD</a></li>
+                <li><a href="{% url 'contact' %}"> Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Nav bar ends here-->
 
 <!-- CONTENT BLOCK -->
 {% block content %}
@@ -36,13 +70,22 @@
 {% endblock %}
 <!-- END OF CONTENT BLOCK -->
 
+{% block footer %}
+
+        <div class="panel-footer navbar-fixed-bottom">
+            <div class="container-fluid text-center">
+                <p>GB-IT Abteilung Forschung & Lehre</p>
+                <p class="copyright text-muted">Copyright © Science-IT 2019</p>
+            </div>
+         </div>
+
+{% endblock %}
 
 <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 </body>
 <!-- Body section ends here -->
