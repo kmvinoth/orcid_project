@@ -19,4 +19,12 @@ from public_api import views
 
 urlpatterns = [
     url('redirect', views.uri_redirect, name='redirect'),
+
+    url('invitation_link/(?P<token>[0-9A-Za-z]{1,32})', views.invitation_link_view,
+        name='invitation_link'),
+
+    url('contact', views.contact, name='contact'),
+
+    url('orcid_create_or_linking_rejected', views.reject_orcid_creation_and_linking, name='user_reject_orcid'),
+
 ]
