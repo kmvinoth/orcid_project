@@ -1,4 +1,5 @@
 from django.db import models
+from multiselectfield import MultiSelectField
 
 # Create your models here.
 
@@ -36,6 +37,35 @@ class Employees(models.Model):
         managed = False
         db_table = 'employees'
         verbose_name_plural = 'employees'
+        ordering = ['pk']
+
+
+class OrcidInvitation(models.Model):
+
+    ORCID_CHOICES = (('yes', 'Yes'), ('no', 'No'))
+
+    id = models.AutoField(primary_key=True)
+    employee_uid = models.ForeignKey(Employees, models.DO_NOTHING, db_column='employee_uid', blank=True, null=True)
+    token = models.CharField(max_length=50, blank=True, null=True)
+    link = models.CharField(max_length=200, blank=True, null=True)
+    link_validated = models.IntegerField(default=0)
+    email_sent = models.IntegerField(blank=True, null=True)
+    click_create_orcid = models.IntegerField(blank=True, null=True)
+    click_link_orcid = models.IntegerField(blank=True, null=True)
+    click_not_interested_orcid = models.IntegerField(blank=True, null=True)
+    have_orcid = MultiSelectField(choices=ORCID_CHOICES, blank=True, null=True)
+    message = models.CharField(max_length=200, blank=True, null=True)
+    researcher = MultiSelectField(choices=ORCID_CHOICES, blank=True, null=True)
+
+    def __str__(self):
+        return "{} - {}".format(self.id, self.employee_uid, self.token, self.link, self.link_validated, self.email_sent,
+                                self.click_create_orcid, self.click_link_orcid, self.click_not_interested_orcid,
+                                self.have_orcid, self.message)
+
+    class Meta:
+        managed = False
+        db_table = 'orcid_invitation'
+        ordering = ['pk']
 
 
 class OrcidTable(models.Model):
@@ -46,11 +76,15 @@ class OrcidTable(models.Model):
     scope = models.CharField(max_length=30)
     full_name = models.CharField(max_length=100)
     orcid = models.CharField(max_length=50)
+    # invitation_id = models.ForeignKey(OrcidInvitation, models.DO_NOTHING, blank=True, null=True)
+    # orcid_created = models.IntegerField(blank=True, null=True)
+    # orcid_linked = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return "{} - {}".format(self.access_token, self.token_type, self.refresh_token,
                                 self.expires_in, self.scope, self.full_name, self.orcid)
 
     class Meta:
+        managed = False
         db_table = 'orcid_table'
         verbose_name_plural = 'orcid_table'
