@@ -1,30 +1,42 @@
 {% extends "base.html" %}
 
+{% load staticfiles %}
+
 <!-- CONTENT BLOCK -->
 {% block content %}
 
     <div class="container">
-        <h1 align="center"><strong>Get an ORCID iD!</strong></h1>
-            <h2 align="center">Click the button below to create an ORCID iD and connect it to Charité Universitätsmedizin Berlin.</h2>
-            <br><br>
-            <div class="text-center">
 
-                <button type="button" class="btn btn btn-lg">
+        <div class="row">
 
-                    <a href="https://sandbox.orcid.org/oauth/authorize?client_id=APP-U7461O0AG8D66UBJ&response_type=code&scope=/authenticate&redirect_uri=https://science-it.charite.de/orcid/public_api/redirect&family_names=tegsdcvbhdflo1&given_names=terbnlxertxcaee2&email=od6dlolvbnooabc%40mailinator.com&show_login=false" style="text-decoration: none">
+            <div class="col-sm-12">
 
-                        <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png"
-                             width='24' height='24' alt="ORCID logo"/> Create a new ORCID iD</a>
+                <div class="panel panel-primary">
 
-                </button>
+                    <div class="panel-heading text-center">
+
+                        <h1>ORCiD Intergration at Charite</h1>
+
+                    </div>
+
+                    <div class="panel-body">
+
+                        <ul>
+                            <li>ORCiD is a unique research identifier.</li>
+                            <li>Integrating your ORCiD with Charite system helps your research more visible to the outside world</li>
+                            <li>We also update your records on ORCiD on behalf of you and keep your record UpToDate</li>
+                            <li>You can revoke the permission anytime you want. </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <br><br>
-            <h3 align="center">Already have an ORCID iD?
-                <a href="https://sandbox.orcid.org/oauth/authorize?client_id=APP-U7461O0AG8D66UBJ&response_type=code&scope=/authenticate&redirect_uri=https://science-it.cahrite.de/orcid/public_api/redirect&show_login=true"
-                   style="text-decoration: none">Connect your existing ORCID iD to Charité Universitätsmedizin Berlin.</a>
-            </h3>
         </div>
+
+    </div>
 
 {% endblock %}
 <!-- END OF CONTENT BLOCK -->

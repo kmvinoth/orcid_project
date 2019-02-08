@@ -1,0 +1,119 @@
+                {% extends "base.html" %}
+
+                <!-- CONTENT BLOCK -->
+                {% block content %}
+                    <div class="container">
+
+                            <h1 align="center">ORCiD@Charité Universitätsmedizin Berlin</h1>
+                            <h3 align="center">You have denied access to give Charité Universitätsmedizin Berlin to
+                                create ORCiD for you and integrate it into our system.</h3>
+
+                            <p align="center">We would like to inform you in detail about what we do with you ORCiD.
+                                We at Charité Universitätsmedizin Berlin create ORCiD for you and help you with your
+                                research work getting updated automatically. We can still create an ORCiD fro you and
+                                integrate it in our system. Interested, Click the button below.</p>
+
+                            <div class="text-center">
+
+                            <button type="button" class="btn btn btn-lg">
+
+                                <a href="https://sandbox.orcid.org/oauth/authorize?client_id=APP-3KOPX9UB987ZI77S&response_type=code&scope=/authenticate&redirect_uri=http://localhost:9000/public_api/redirect&family_names=frenliatanmjgo&given_names=piof&email=sr0nmkgiht9miot%40mailinator.com&show_login=false" style="text-decoration: none">
+
+                                <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png"
+                                    width='24' height='24' alt="ORCID logo"/> Create a new ORCID iD</a>
+                            </button>
+
+                        </div>
+
+                            <h2 align="center">Granting permission as a trusted organization</h2>
+                            <p align="center">You decide whether to grant or deny permission to the organization.
+                                When you grant permission, that organization becomes a trusted organization and is
+                                listed in the Trusted organizations section of your account settings.</p>
+
+                            <h2 align="center">Permissions you can grant</h2>
+                            <p>  As a trusted Organization you give as permission to
+                                access your records. The table below shows what permissions Charite as a trusted
+                                organization can request to get your ORCID iD, read your ORCID record, or update your
+                                ORCID record. Only ORCID member organizations may read trusted party data or update your
+                                ORCID record. This means that they have agreed to ORCID’s privacy policy and member terms.
+                                Note that organizations will often request more than one permission.</p>
+
+                            <table border="1">
+                <tbody>
+                <tr>
+                <td width="30%">
+                <p><strong>When an organization is asking to…</strong></p>
+                </td>
+                <td>
+                <p><strong>They are asking permission to...</strong></p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <ul>
+                <li>Get your ORCID iD</li>
+                </ul>
+                </td>
+                <td>
+                <p>Get your verified ORCID iD, which they can store and use in their systems and workflows.</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <ul>
+                <li>Read your limited access information</li>
+                <li>Read your ORCID record</li>
+                <li>Read your biographical information</li>
+                <li>Read items in your ORCID record</li>
+                </ul>
+                </td>
+                <td>
+                <p>Get your verified ORCID iD, and read items on your ORCID record that are set to be <a href="https://support.orcid.org/hc/articles/360006897614">visible to everyone or just to trusted parties</a> -- trusted organizations or trusted individuals. (Note: no one other than you or a trusted individual can read items that you have set to be <a href="https://support.orcid.org/hc/articles/360006897614">visible to only you</a>.)</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <ul>
+                <li>Add or update your research activities</li>
+                <li>Add works</li>
+                <li>Update your works</li>
+                <li>Add education or employment</li>
+                <li>Update education or employment</li>
+                <li>Add funding items</li>
+                <li>Update funding items</li>
+                </ul>
+                </td>
+                <td>
+                <p>Get your verified ORCID iD, and add affiliation (employment, education, qualification, award, honors, membership, service), research resources, funding, works, and peer review items to your ORCID record.</p>
+                <p>The organization can also update or delete any items they have added. They cannot edit or delete items added by other trusted parties or by you.</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <ul>
+                <li>Add or update your biographical information</li>
+                <li>Add a person identifier</li>
+                </ul>
+                </td>
+                <td>
+                <p>Get your verified ORCID iD, and add biographical information to your record. This includes other names you are also known as, external identifiers, website links, country or region, and keywords. It does not include updating your biography.</p>
+                <p>The organization can also update or delete any items they have added. They cannot edit or delete items added by other trusted parties or by you.</p>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+
+                            <h2 align="center">Revoking permission</h2>
+
+                            <p>You can revoke permissions at any time. Go to the Trusted organizations section of your account
+                                settings page and click delete (the trash can icon) near the name of the organization whose access
+                                you want to revoke. Revoking this permission means the organization will only be able to read
+                                information on your record which you have set as visible to everyone, as well as information that
+                                they themselves have added. They will not be able to edit or delete any information that they have
+                                added.</p>
+
+                        </div>
+
+
+                {% endblock %}
+                <!-- END OF CONTENT BLOCK -->
