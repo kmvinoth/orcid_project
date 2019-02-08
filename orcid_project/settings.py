@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     # Apps Developed locally
     'public_api',
     'requests',
+    'crispy_forms',
+    'multiselectfield'
     # 'rest',
     # Third party apps
     # 'debug_toolbar',
@@ -49,6 +51,8 @@ INSTALLED_APPS = [
     # 'rest_framework',
     # 'corsheaders',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -138,5 +142,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/css/'),os.path.join(BASE_DIR, 'static/images/') )
+
+# Charite Email settings (working)
+EMAIL_HOST = 'exchange-smtp.charite.de'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = config('CHARITE_USER')
+EMAIL_HOST_PASSWORD = config('CHARITE_PASSWORD')
+EMAIL_USE_TLS = True
 
 # INTERNAL_IPS = ('127.0.0.1',)  # for django-debug-toolbar
