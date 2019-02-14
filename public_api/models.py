@@ -73,7 +73,7 @@ class OrcidTable(models.Model):
     token_type = models.CharField(max_length=15)
     refresh_token = models.CharField(max_length=100)
     expires_in = models.CharField(max_length=15)
-    scope = models.CharField(max_length=30)
+    scope = models.CharField(max_length=150)
     full_name = models.CharField(max_length=100)
     orcid = models.CharField(max_length=50)
     # invitation_id = models.ForeignKey(OrcidInvitation, models.DO_NOTHING, blank=True, null=True)
