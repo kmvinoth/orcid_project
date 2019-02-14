@@ -127,7 +127,7 @@
 
                                         <div class="col-sm-6">
 
-                                            <div class="checkbox" onclick="testcheck()">
+                                            <div class="checkbox">
 
                                                 {{ form.have_orcid }}
 
@@ -209,18 +209,17 @@
 
     </style>
 
-    <script>
-        {
-            function testcheck() {
-                if (!jQuery(".checkbox").is(":checked")) {
-                    alert("none checked");
-                    return false;
-                }
-                return true;
-            }
-        }
-        {#function openForm() {$("#myform").removeClass("hidden")}#}
-    </script>
+{#    <script>#}
+{#        {#}
+{#            function testcheck() {#}
+{#                if (!jQuery(".checkbox").is(":checked")) {#}
+{#                    alert("none checked");#}
+{#                    return false;#}
+{#                }#}
+{#                return true;#}
+{#            }#}
+{#        }#}
+{#    </script>#}
 
 {% endblock %}
 <!-- END OF CONTENT BLOCK -->
