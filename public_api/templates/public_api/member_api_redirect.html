@@ -1,0 +1,48 @@
+    {% extends "base.html" %}
+
+    <!-- CONTENT BLOCK -->
+    {% block content %}
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <div class="panel panel-primary">
+
+                        <div class="panel-heading text-center">
+
+                            <h2>Thanks {{ fullname }}</h2>
+
+                        </div>
+
+                        <div class="panel-body">
+
+                            <div class="col-sm-12">
+
+                                <h3 align="center">You have successfully created an ORCiD and linked it to Charité Universitätsmedizin Berlin (Member API).</h3>
+                                <h2 align="center">Your ORCID is {{ orcid }} </h2>
+
+                                <button type="button" class="btn btn btn-lg center-block">
+
+                                     <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo">
+
+                                    <a href="https://sandbox.orcid.org/my-orcid" target="_blank" style="text-decoration: none">Go to your ORCID record</a>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    </div>
+
+    {% endblock %}
+    <!-- END OF CONTENT BLOCK -->
