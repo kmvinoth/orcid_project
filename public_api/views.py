@@ -275,7 +275,7 @@ def member_api_invitation_link_view(request, token):
 
             user_email = orcid_invitation_inst.employee_uid.mail
 
-            base_url = "https://sandbox.orcid.org/oauth/authorize?client_id=APP-8DI6P3MTH4TUOAQI&response_type=code&scope=/read-limited%20/activities/update%20/person/update&redirect_uri=http://localhost:9000/success"
+            base_url = "https://sandbox.orcid.org/oauth/authorize?client_id=APP-8DI6P3MTH4TUOAQI&response_type=code&scope=/read-limited%20/activities/update%20/person/update&redirect_uri="+config('REDIRECT_URI')
 
             family_name_url = "&family_names="+user_last_name
 
@@ -387,7 +387,7 @@ def member_api_success(request):
             payload = {'client_id': config('MEMBER_CLIENT_ID'),
                        'client_secret': config('MEMBER_CLIENT_SECRET'),
                        'grant_type': 'authorization_code',
-                       'code': auth_code, 'redirect_uri': 'http://localhost:9000/success'}
+                       'code': auth_code, 'redirect_uri': config('REDIRECT_URI')}
 
             headers = {'Accept': 'application/json'}
 
