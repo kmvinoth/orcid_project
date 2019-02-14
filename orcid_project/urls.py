@@ -21,6 +21,9 @@ from public_api import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url(r'^invitation_link/(?P<token>[0-9A-Za-z]{1,32})', views.member_api_invitation_link_view,
+        name='member_api_invitation_link'),
+    url(r'^success$', views.member_api_success, name='memeber_api_success'),
     url(r'^public_api/', include('public_api.urls')),
     url('admin/', admin.site.urls),
 ]
