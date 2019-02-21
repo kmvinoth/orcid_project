@@ -73,3 +73,6 @@ target/
 # Virtualenv
 venv/
 .env
+
+orcid_eer.mwb
+orcid_eer.mwb.bak
