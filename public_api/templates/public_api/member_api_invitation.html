@@ -7,7 +7,7 @@
 
     {% if error %}
 
-       <div class="container">
+        <div class="container">
 
             <div class="row">
 
@@ -25,10 +25,9 @@
 
                             <div class="col-sm-4 col-sm-offset-4">
 
-                                <p> Looks like something went wrong on our side!</p>
-                                   <p> We track these errors automatically, but if the problem persists feel free to
-                                       contact us <a href="mailto:science-it@charite.de"> Science-IT Team</a> </p>
-                                       <p> In the meantime, try refreshing</p>
+                                <p> Looks like there is problem with you personalized link!</p>
+                                <p> Try refreshing, but if the problem persists feel free to
+                                    contact us <a href="mailto:science-it@charite.de"> Science-IT Team</a> </p>
 
                             </div>
 
@@ -40,206 +39,237 @@
 
             </div>
 
-    </div>
+        </div>
 
     {% else %}
 
-    <div class="container">
-        <div class="row">
+        <div class="container">
+            <div class="row">
 
-            <h2 align="center">Dear {{ gender }} {{ last_name }}, You have been invited by Charite to Create or link your ORCiD to Charite System.</h2>
+                <h2 align="center">Dear {{ gender }} {{ last_name }}, You have been invited by Charite to Create or link your ORCiD to Charite System.</h2>
 
-            <br>
-            <div class="col-sm-4">
-                <div class="panel panel-primary">
-                    <div class="panel-heading text-center">Create ORCiD</div>
-                    <div class="panel-body">
+                <br>
+                <div class="col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading text-center">Create ORCiD</div>
+                        <div class="panel-body">
 
-                        <form method='get'>
+                            <form method='get'>
 
-                            <button type="submit" class="btn btn btn-lg center-block" name="next" value={{ orcid_url_without_login}}>
+                                <button type="submit" class="btn btn btn-lg center-block js-create-orcid" name="next" value={{ orcid_url_without_login}}>
 
                                     <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Create new ORCiD
 
-                            </button>
-
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="panel panel-success">
-                    <div class="panel-heading text-center">Link your existing ORCiD</div>
-                    <div class="panel-body">
-
-                         <form method='get'>
-
-                            <button type="submit" class="btn btn btn-lg center-block" name="next" value={{ orcid_url_with_login }}>
-
-                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Link your existing ORCiD
-
-                            </button>
-
-                         </form>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-4">
-                <div class="panel panel-danger">
-                    <div class="panel-heading text-center">Not, Interested in ORCiD</div>
-                    <div class="panel-body">
-
-                        <form method='get'>
-{#                            onclick="openForm()"#}
-
-                            <button type="submit" class="btn btn btn-lg center-block", name="next" value="not_interested" >
-
-                                <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Not, Interested in ORCiD
-
-                            </button>
+                                </button>
 
                             </form>
 
+                        </div>
                     </div>
-
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading text-center">Link your existing ORCiD</div>
+                        <div class="panel-body">
 
-    <br>
+                            <form method='get'>
 
-    {% if form_hidden is False %}
+                                <button type="submit" class="btn btn btn-lg center-block" name="next" value={{ orcid_url_with_login }}>
 
-        <div class="container">
+                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Link your existing ORCiD
 
-            <div class="row">
+                                </button>
 
-                <div class="col-sm-12">
+                            </form>
 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
                     <div class="panel panel-danger">
+                        <div class="panel-heading text-center">Not, Interested in ORCiD</div>
+                        <div class="panel-body">
 
-                        <div class="panel-heading text-center">
+                            <form method='get'>
+                                {#                            onclick="openForm()"#}
 
-                            Kindly, tell us why you are not interested to create or link ORCiD to Charite System
+                                <button type="submit" class="btn btn btn-lg center-block", name="next" value="not_interested" >
+
+                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Not, Interested in ORCiD
+
+                                </button>
+
+                            </form>
 
                         </div>
 
-                        <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                            <div class="col-sm-4 col-sm-offset-4">
+        <br>
 
-                                <form class="form-horizontal" method="post" id="feedback_form">
+        {% if form_hidden is False %}
 
-                                    {% csrf_token %}
+            <div class="container">
 
-                                    <div class="form-group">
+                <div class="row">
 
-                                        <label class="control-label col-sm-6" id="research">{{ form.researcher.label_tag }}</label>
+                    <div class="col-sm-12">
 
-                                        <div class="col-sm-6">
+                        <div class="panel panel-danger">
 
-                                            <div class="checkbox" >
+                            <div class="panel-heading text-center">
 
-                                                {{ form.researcher }}
+                                Kindly, tell us why you are not interested to create or link ORCiD to Charite System
 
-                                            </div>
+                            </div>
 
-                                        </div>
-                                    </div>
+                            <div class="panel-body">
 
-                                    <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-4">
 
-                                        <label class="control-label col-sm-6" id="orcid">{{ form.have_orcid.label_tag }}</label>
+                                    <form class="form-horizontal" method="post" id="feedback_form">
 
-                                        <div class="col-sm-6">
+                                        {% csrf_token %}
 
-                                            <div class="checkbox">
+                                        <div class="form-group">
 
-                                                {{ form.have_orcid }}
+                                            <label class="control-label col-sm-6" id="research">{{ form.researcher.label_tag }}</label>
 
-                                            </div>
+                                            <div class="col-sm-6">
 
-                                        </div>
-                                    </div>
+                                                <div class="checkbox" >
 
-                                    <div class="form-group">
+                                                    {{ form.researcher }}
 
-                                        <label class="control-label col-sm-6" >{{ form.message.label_tag }}</label>
-
-                                        <div class="col-sm-6">
-
-                                            <div class="text-justify">
-
-                                                {{ form.message }}
+                                                </div>
 
                                             </div>
-
                                         </div>
-                                    </div>
 
-{#                                    {{ form|crispy }}#}
+                                        <div class="form-group">
 
-                                    <button type="submit" class="btn btn-success center-block" > Submit </button>
+                                            <label class="control-label col-sm-6" id="orcid">{{ form.have_orcid.label_tag }}</label>
 
-                                </form>
+                                            <div class="col-sm-6">
+
+                                                <div class="checkbox">
+
+                                                    {{ form.have_orcid }}
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+
+                                            <label class="control-label col-sm-6" >{{ form.message.label_tag }}</label>
+
+                                            <div class="col-sm-6">
+
+                                                <div class="text-justify">
+
+                                                    {{ form.message }}
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        {#                                    {{ form|crispy }}#}
+
+                                        <button type="submit" class="btn btn-success center-block" > Submit </button>
+
+                                    </form>
+                                </div>
+
                             </div>
 
                         </div>
-
                     </div>
+
                 </div>
 
             </div>
 
-        </div>
+        {% endif %}
 
-    {% endif %}
+        {% if message %}
 
-    {% if message %}
+            <div class="container">
 
-        <div class="container">
+                <div class="row">
 
-            <div class="row">
+                    <div class="col-sm-12">
 
-                <div class="col-sm-12">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading text-center">
 
-                    <div class="panel panel-danger">
-                        <div class="panel-heading text-center">
+                                Kindly, tell us why you are not interested to create or link ORCiD to Charite System
 
-                            Kindly, tell us why you are not interested to create or link ORCiD to Charite System
+                            </div>
 
-                        </div>
-
-                        <div class="panel-body text-center" >
+                            <div class="panel-body text-center" >
 
                                 <p> <strong> Thank you, for your Feedback </strong> </p>
 
-{#                                <p> <strong> <a href="{% url 'user_reject_orcid' %}"> Here,</a> you can see what we do with your ORCiD as a trusted organization. </strong> </p>#}
+                                {#                                <p> <strong> <a href="{% url 'user_reject_orcid' %}"> Here,</a> you can see what we do with your ORCiD as a trusted organization. </strong> </p>#}
+
+                            </div>
 
                         </div>
-
                     </div>
+
                 </div>
 
             </div>
 
-        </div>
+        {% endif %}
 
-    {% endif %}
+        <style>
+            li {
+                list-style-type: none;
+                display : inline;
+            }
 
-    <style>
-    li {
-    list-style-type: none;
-    display : inline;
-    }
-
-    </style>
+        </style>
 
     {% endif %}
 
 {% endblock %}
 <!-- END OF CONTENT BLOCK -->
+
+<!-- JS BLOCK -->
+{% block javascript %}
+
+    <script>
+        $(function () {
+
+            $(".js-create-orcid").click(function () {
+
+                $.ajax({
+                    url: 'https://sandbox.orcid.org/userStatus.json?logUserOut=true',
+                    dataType: 'jsonp',
+                    success: function(result,status,xhr) {
+                        {#alert("Logged In: " + result.loggedIn);#}
+                        console.log('success')
+                    },
+                    error: function (xhr, status, error) {
+                        {#alert(status);#}
+                        console.log('Error')
+                    }
+                });
+
+            });
+
+        });
+
+    </script>
+
+{% endblock %}
+
+<!-- END OF JS BLOCK -->
