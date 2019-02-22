@@ -74,7 +74,7 @@
 
                             <form method='get'>
 
-                                <button type="submit" class="btn btn btn-lg center-block" name="next" value={{ orcid_url_with_login }}>
+                                <button type="submit" class="btn btn btn-lg center-block js-link-orcid" name="next" value={{ orcid_url_with_login }}>
 
                                     <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Link your existing ORCiD
 
@@ -256,11 +256,28 @@
                     dataType: 'jsonp',
                     success: function(result,status,xhr) {
                         {#alert("Logged In: " + result.loggedIn);#}
-                        console.log('success')
+                        console.log('user signed out (create orcid)')
                     },
                     error: function (xhr, status, error) {
                         {#alert(status);#}
-                        console.log('Error')
+                        console.log('error user sign out (create orcid)')
+                    }
+                });
+
+            });
+
+            $(".js-link-orcid").click(function () {
+
+                $.ajax({
+                    url: 'https://sandbox.orcid.org/userStatus.json?logUserOut=true',
+                    dataType: 'jsonp',
+                    success: function(result,status,xhr) {
+                        {#alert("Logged In: " + result.loggedIn);#}
+                        console.log('user signed out (link orcid)')
+                    },
+                    error: function (xhr, status, error) {
+                        {#alert(status);#}
+                       console.log('error user sign out (link orcid)')
                     }
                 });
 
