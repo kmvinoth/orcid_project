@@ -51,14 +51,14 @@
                 <br>
                 <div class="col-sm-4">
                     <div class="panel panel-primary">
-                        <div class="panel-heading text-center">Create ORCiD</div>
+                        <div class="panel-heading text-center">Create ORCID iD</div>
                         <div class="panel-body">
 
                             <form method='get'>
 
                                 <button type="submit" class="btn btn btn-lg center-block js-create-orcid" name="next" value={{ orcid_url_without_login}}>
 
-                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Create new ORCiD
+                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Create an ORCID iD
 
                                 </button>
 
@@ -69,14 +69,14 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="panel panel-success">
-                        <div class="panel-heading text-center">Link your existing ORCiD</div>
+                        <div class="panel-heading text-center">Link existing ORCID iD</div>
                         <div class="panel-body">
 
                             <form method='get'>
 
                                 <button type="submit" class="btn btn btn-lg center-block js-link-orcid" name="next" value={{ orcid_url_with_login }}>
 
-                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Link your existing ORCiD
+                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Link existing ORCID iD
 
                                 </button>
 
@@ -88,15 +88,14 @@
 
                 <div class="col-sm-4">
                     <div class="panel panel-danger">
-                        <div class="panel-heading text-center">Not, Interested in ORCiD</div>
+                        <div class="panel-heading text-center">Not, Interested in ORCID iD</div>
                         <div class="panel-body">
 
                             <form method='get'>
-                                {#                            onclick="openForm()"#}
 
                                 <button type="submit" class="btn btn btn-lg center-block", name="next" value="not_interested" >
 
-                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Not, Interested in ORCiD
+                                    <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo"> Not, Interested in ORCID iD
 
                                 </button>
 
@@ -141,7 +140,7 @@
 
                                             <div class="col-sm-6">
 
-                                                <div class="checkbox" >
+                                                <div class="checkbox" onclick="researcher()">
 
                                                     {{ form.researcher }}
 
@@ -156,7 +155,7 @@
 
                                             <div class="col-sm-6">
 
-                                                <div class="checkbox">
+                                                <div class="checkbox" onclick="orcid()">
 
                                                     {{ form.have_orcid }}
 
@@ -284,6 +283,61 @@
             });
 
         });
+
+        function researcher() {
+
+             if ($('#id_researcher_0').prop("checked")) {
+
+                 $('#id_researcher_1').prop("disabled", true);
+
+                {#console.log("Yes checked");#}
+            }
+            else {
+
+                {#console.log("Yes unchecked");#}
+
+                $('#id_researcher_1').prop("disabled", false);
+
+            }
+
+            if ($('#id_researcher_1').prop("checked")) {
+
+                 $('#id_researcher_0').prop("disabled", true);
+
+                {#console.log("No checked");#}
+            }
+            else {
+
+                {#console.log("No unchecked");#}
+
+                $('#id_researcher_0').prop("disabled", false);
+
+            }
+        }
+
+        function orcid() {
+
+             if ($('#id_have_orcid_0').prop("checked")) {
+
+                 $('#id_have_orcid_1').prop("disabled", true);
+            }
+            else {
+
+                $('#id_have_orcid_1').prop("disabled", false);
+
+            }
+
+            if ($('#id_have_orcid_1').prop("checked")) {
+
+                 $('#id_have_orcid_0').prop("disabled", true);
+
+            }
+            else {
+
+                $('#id_have_orcid_0').prop("disabled", false);
+
+            }
+        }
 
     </script>
 
