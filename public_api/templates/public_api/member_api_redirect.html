@@ -1,5 +1,5 @@
-    {% extends "base.html" %}
-
+{% extends "base.html" %}
+{% load staticfiles %}
     <!-- CONTENT BLOCK -->
     {% block content %}
 
@@ -13,7 +13,7 @@
 
                         <div class="panel-heading text-center">
 
-                            <h2>Thanks {{ fullname }}</h2>
+                            <h2>Thank you {{ fullname }}</h2>
 
                         </div>
 
@@ -21,16 +21,20 @@
 
                             <div class="col-sm-12">
 
-                                <h3 align="center">You have successfully created an ORCiD and linked it to Charité Universitätsmedizin Berlin (Member API).</h3>
-                                <h2 align="center">Your ORCID is {{ orcid }} </h2>
+                                {% if sandbox_url %}
+                                    <h3 align="center">You have successfully created an ORCiD and linked it to Charité Universitätsmedizin Berlin.</h3>
+                                    <h3 align="center">Your ORCID is now connected:</h3>
+                                    <h3 align="center">
+                                        <img id="orcid-id-logo" src="{% static "images/orcid_24.png" %}" width="24" height="24" alt="ORCID logo">
+                                        <a href={{ sandbox_url }} target="_blank" style="text-decoration: none"> {{ sandbox_url }}</a>
+                                    </h3>
+                                {% else %}
 
-                                <button type="button" class="btn btn btn-lg center-block">
+                                    <h3 align="center">There is a problem regarding connecting your ORCID to Charité
+                                        Universitätsmedizin Berlin. We will try to resolve it as soon as
+                                        possible.</h3>
 
-                                     <img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width="24" height="24" alt="ORCID logo">
-
-                                    <a href="https://sandbox.orcid.org/my-orcid" target="_blank" style="text-decoration: none">Go to your ORCID record</a>
-
-                                </button>
+                                {% endif %}
 
                             </div>
 
