@@ -21,7 +21,7 @@ class OrcidInvitationForm(forms.ModelForm):
 
         model = OrcidInvitation
         fields = ['researcher', 'have_orcid', 'message']
-        labels = {'researcher': 'Are you a Researcher', "have_orcid": "Do you have ORCiD"}
+        labels = {'researcher': 'Are you a Researcher', "have_orcid": "Do you have ORCID iD"}
         widgets = {
             'message': forms.Textarea(attrs={'rows': 5, 'cols': 35,
                                              'placeholder': 'Write your message here. Max 200 Characters.'}),
