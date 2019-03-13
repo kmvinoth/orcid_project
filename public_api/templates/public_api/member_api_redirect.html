@@ -22,15 +22,17 @@
                             <div class="col-sm-12">
 
                                 {% if sandbox_url %}
-                                    <h3 align="center">You have successfully created an ORCiD and linked it to Charité Universitätsmedizin Berlin.</h3>
-                                    <h3 align="center">Your ORCID is now connected:</h3>
+                                    <h3 align="center">You have successfully created an ORCID iD and linked it to Charité Universitätsmedizin Berlin.</h3>
+                                    <h3 align="center">Your ORCID iD is now connected:</h3>
                                     <h3 align="center">
-                                        <img id="orcid-id-logo" src="{% static "images/orcid_24.png" %}" width="24" height="24" alt="ORCID logo">
+                                        <a href={{ sandbox_url }} target="_blank" style="text-decoration: none">
+                                            <img id="orcid-id-logo" src="{% static "images/orcid_24.png" %}" width="24" height="24" alt="ORCID logo">
+                                            </a>
                                         <a href={{ sandbox_url }} target="_blank" style="text-decoration: none"> {{ sandbox_url }}</a>
                                     </h3>
                                 {% else %}
 
-                                    <h3 align="center">There is a problem regarding connecting your ORCID to Charité
+                                    <h3 align="center">There is a problem regarding connecting your ORCID iD to Charité
                                         Universitätsmedizin Berlin. We will try to resolve it as soon as
                                         possible.</h3>
 
