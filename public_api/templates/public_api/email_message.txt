@@ -1,3 +1,5 @@
+**english version below**
+
 Liebe Wissenschaftlerinnen und Wissenschaftler des Instituts für Physiologie,
 
 die Fakultät strebt an, dass jeder wissenschaftlichen Mitarbeiterin und jedem wissenschaftlichen Mitarbeiter der Charité eine ORCID-ID zugeordnet ist.
@@ -8,13 +10,11 @@ Durch das Einwilligen, dass die Charité  Universitätsmedizin Berlin, die Liste
 Charité - Universitätsmedizin Berlin, lädt Sie ein, Ihre ORCID-ID zu erstellen oder Ihre vorhandene ORCID-ID mit dem Charité Research System zu verknüpfen. Klicken Sie unten auf den Link, um mit der Integration der ORCID-ID an der Charité zu beginnen.
 https://science-it.charite.de/orcid/invitation_link/22896e318cc444478d12b3c0dec19214
 
-
 Was ist ORCID?
 Die Open Research and Contributor iD (ORCID) ist eine Non-Profit-Organisation, die eindeutige Identifizierungsnummern (ORCID IDs) für Forschende vergibt, die es ermöglichen, Wissenschaftler*innen mit ihrer Forschung zu verknüpfen. Die iD ist verlagsunabhängig und kann dauerhaft und institutionsunabhängig von Forschenden für ihren wissenschaftlichen Output verwendet werden. Die Registrierung erfolgt über https://orcid.org/ und ist grundsätzlich für alle offen.
 
 Warum ORCID?
 Mit Hilfe einer ORCID ID können Forschende eindeutig Identifiziert werden und eine Verbesserung der Sichtbarkeit der Forschung erreicht werden. Publikationslisten lassen sich einfach erstellen und verwalten. Durch die Ernennung von sogenannten trusted parties‘ lassen sich Publikationsmetadaten automatisch in die ORCID Profile der Forschenden übernehmen, ggf. auch in das institutionseigene Publikationssystem (Repository, FIS, oder Hochschulbibliografie). Auch bei einem Wechsel der Universität können Forschende Ihre ORCID ID weiter nutzen.
-
 
 English Version
 
@@ -39,8 +39,6 @@ ORCID minimizes the time you spend filling out forms for research publications o
 
 Build Your Professional Profile
 With an ORCID you can easily showcase your accomplishments.
-
-
 
 Who Am I?
 Do you have a common name? Have published some articles with your middle initiation, some with your first initial, and others with your full name? Have you changed your name at some point during your research career?
