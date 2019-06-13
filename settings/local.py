@@ -27,6 +27,63 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 STATICFILES_DIRS = ["/mnt/u/s-it/orcid_project/public_api/static/public_api/"]
 
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'standard': {
+#             'format': '%(asctime)s %(name)s [%(levelname)s] %(module)s %(message)s',
+#             'datefmt': '%Y-%m-%d %H:%M:%S'
+#         },
+#         'console_format': {
+#             'format': '[%(asctime)s] %(message)s',
+#             'datefmt': '%Y-%m-%d %H:%M:%S'
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'console_format'
+#         },
+#
+#         'default': {
+#             'level': 'INFO',
+#             'class': 'logging.handlers.RotatingFileHandler',
+#             'filename': '/mnt/u/s-it/orcid_project/logs/orcid_default.log',
+#             'maxBytes': 1024*1024*3,
+#             'backupCount': 5,
+#             'formatter': 'standard'
+#         },
+#         'request_handler': {
+#             'level': 'INFO',
+#             'class': 'logging.handlers.RotatingFileHandler',
+#             'filename': '/mnt/u/s-it/orcid_project/logs/orcid_request.log',
+#             'maxBytes': 1024*1024*3,
+#             'backupCount': 5,
+#             'formatter': 'standard'
+#         },
+#
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console'],
+#             'level': 'INFO',
+#         },
+#
+#         '': {
+#             'handlers': ['default'],
+#             'level': 'INFO',
+#             'propagate': True,
+#         },
+#
+#         'django.request': {
+#             'handlers': ['request_handler'],
+#             'level': 'INFO',
+#             'propagate': False,
+#         },
+#     }
+# }
+
 if DEBUG:
     # Charite Email settings (working)
     # EMAIL_HOST = 'exchange-smtp.charite.de'
@@ -35,6 +92,7 @@ if DEBUG:
     # EMAIL_HOST_PASSWORD = config('CHARITE_PASSWORD')
     # EMAIL_USE_TLS = True
 
+    # python - m smtpd - n - c DebuggingServer localhost: 1025
     # Local SMTP SERVER
     EMAIL_HOST = 'localhost'
     EMAIL_PORT = 1025
