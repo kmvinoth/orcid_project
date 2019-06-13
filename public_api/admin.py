@@ -31,12 +31,16 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
             receiver = [user.employee_uid.mail]
 
             try:
+                user_invitation = OrcidInvitation.objects.get(employee_uid=user.employee_uid)
+                user_link = user_invitation.link
+                context = {'link': user_link}
+
                 file_path = settings.BASE_DIR + "/public_api/templates/public_api/email_message.txt"
                 print("FILE PATH = ", file_path)
-                with open(file_path) as f:
+                with open(file_path, encoding="utf-8") as f:
                     email_message = f.read()
                     message = EmailMultiAlternatives(subject=subject, body=email_message, from_email=sender, to=receiver)
-                    html_template = get_template("public_api/email_message_template.html").render()
+                    html_template = get_template("public_api/email_message_template.html").render(context)
                     message.attach_alternative(html_template, "text/html")
                     message.send()
                     # send_mail(subject, message, sender, receiver, fail_silently=False)
