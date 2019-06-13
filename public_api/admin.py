@@ -27,7 +27,7 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
             # from_email = config('CHARITE_USER')
             subject = "Reg: Invitation to Create or Link Orcid to Charite"
             # message = "Hi ," + first_name + ", You have been invited by Charite to Create or link your Orcid. Click on the link to proceed further " + user.link
-            sender = "vinothkumar.mohanakrishnan@charite.de"
+            sender = "orcid@charite.de"
             receiver = [user.employee_uid.mail]
 
             try:
