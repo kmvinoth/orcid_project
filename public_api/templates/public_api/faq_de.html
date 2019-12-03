@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+<!-- CONTENT BLOCK -->
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+                <div class="panel panel-primary">
+
+                    <div class="panel-heading text-center">
+
+                        <h1>Frequently Asked Questions </h1>
+
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{% url 'faq-en' %}"> English</a></li>
+                            <li><a href="{% url 'faq-de' %}"> German</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="panel-body">
+
+                            <div class="well well-lg">
+
+                                <div class="panel-group" id="accordion1">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a class="accordion-toggle collapsed" data-toggle="collapse" href="#c1">
+                                                    1. Was ist ORCID?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="c1" class="panel-collapse collapse" style="height: 0px;">
+                                            <div class="panel-body">
+                                                <p>
+                                                    ORCID ist eine unabhängige, gemeinnützige Organisation. Sie stellt mit der ORCID iD einen persistenten Identifikator zur Verfügung der es ermöglicht, Forscher eindeutig voneinander zu unterscheiden und ihren Publikationen und weitere Forschungsergebnissen zuzuordnen.
+                                                    ORCID ist bereits mit vielen Systemen von Verlegern, Fördergenturen, Institutionen und Forschungsrelevanten Services integriert.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a class="accordion-toggle" data-toggle="collapse" href="#c2">
+                                                    2. Warum ORCID benutzen?
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="c2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+
+                                                <p>1.   Eine ORCID iD verknüpft sie zuverlässig mit ihren Forschungsergebnissen, Auszeichnungen und Zugehörigkeiten.</p>
+                                                <br>
+
+                                                <p>2.   ORCID reduziert Verwechselungen und Falschzuordnungen. Viele Wissenscahftler haben denselben oder ähliche Namen, so das Verwechselungen leicht passieren können. Namenswechsel,
+                                                    Namensvarianten oder die Übersetzung solcher in andere Sprachen macht dies noch wahrscheinlicher. Über eine ORCID iD zu verfügen stellt sicher, das sie in jedem Fall korrekt identifiziert werden.</p>
+                                                <br>
+
+                                                <p>3.   Als Forscher kontrollieren und besitzen sie ihre Zuordnung und entscheiden selbst, welche Information verknüpft ist, und wem sie zugänglich gemacht wird.
+                                                    Nur sie selbst können eine ORCID iD besitzen und ihr Profil konfigurieren. Sie wählen welche Information mit der iD verknüpft ist, und mit wem diese geteilt wird - öffentlich, privat,
+                                                    oder nur mit vertrauenswürdigen Organisationen (ORCID-Mitgliedern, denen diese Verknüpfung individuell von ihnen erlaubt wurde). </p>
+                                                <br>
+
+                                                <p>4.   Immer mehr systeme sind bereits über ORCID verknüpft. Bedeutende Manuskripteinreichungssysteme haben ORCID IDs integriert und über 1600 Publikationen verlangen, das alle oder einige Autoren eine iD verwenden</p>
+                                                <br>
+
+                                                <p>5.	ORCID erhöht den Wiedererkennungsgrad ihrer Person und ihrer Forschung, und macht es anderen leichter, ihre Ergebnisse zu entdecken.</p>
+                                                <br>
+
+                                                <p>6.	Ihre ORCID iD ist ihr lebenslanger digitaler Identifikator. ORCID ist offen, international, Gemeinschaftlich und Interdisziplinär.</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

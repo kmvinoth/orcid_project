@@ -24,6 +24,7 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
             # print(user.employee_uid.first_name)
             # print(user.link)
             first_name = user.employee_uid.first_name
+            last_name = user.employee_uid.last_name
             # from_email = config('CHARITE_USER')
             subject = "Reg: Invitation to Create or Link Orcid to Charite"
             # message = "Hi ," + first_name + ", You have been invited by Charite to Create or link your Orcid. Click on the link to proceed further " + user.link
@@ -32,8 +33,9 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
 
             try:
                 user_invitation = OrcidInvitation.objects.get(employee_uid=user.employee_uid)
+                print(last_name)
                 user_link = user_invitation.link
-                context = {'link': user_link}
+                context = {'link': user_link, 'user_last_name': last_name}
 
                 file_path = settings.BASE_DIR + "/public_api/templates/public_api/email_message.txt"
                 print("FILE PATH = ", file_path)

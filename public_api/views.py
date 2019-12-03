@@ -19,6 +19,20 @@ def contact(request):
     return render(request, 'public_api/contact.html')
 
 
+def faq_english(request):
+    """
+    faq_english view render's the faq_en page template
+    """
+    return render(request, 'public_api/faq_en.html')
+
+
+def faq_german(request):
+    """
+    faq_german view render's the faq_de page template
+    """
+    return render(request, 'public_api/faq_de.html')
+
+
 def invitation_link_view(request, token):
     """
     This view shows the personalized user page

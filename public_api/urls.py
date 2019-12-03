@@ -27,4 +27,8 @@ urlpatterns = [
 
     url('orcid_create_or_linking_rejected', views.reject_orcid_creation_and_linking, name='user_reject_orcid'),
 
+    url('faq_english', views.faq_english, name='faq-en'),
+
+    url('faq_german', views.faq_german, name='faq-de'),
+
 ]
