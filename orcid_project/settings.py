@@ -144,7 +144,9 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/css/'),os.path.join(BASE_DIR, 'static/images/') )
+STATICFILES_DIRS = ["/data01/www/orcid_project/static/"]
+
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/css/'),os.path.join(BASE_DIR, 'static/images/') )
 
 # Charite Email settings (working)
 EMAIL_HOST = 'exchange-smtp.charite.de'
