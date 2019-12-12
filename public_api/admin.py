@@ -33,10 +33,13 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
             last_name = user.employee_uid.last_name
             gender = user.employee_uid.gender
             gender_english = "Ms/Mr"
+            salutation = "geehrte/geehrter"
             if gender == "Herr":
                 gender_english = "Mr"
+                salutation = "geehrter"
             if gender == "Frau":
                 gender_english = "Ms"
+                salutation = "geehrte"
             # from_email = config('CHARITE_USER')
             subject = "Reg: Invitation to Create or Link Orcid to Charite"
             # message = "Hi ," + first_name + ", You have been invited by Charite to Create or link your Orcid. Click on the link to proceed further " + user.link
@@ -47,7 +50,8 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
                 user_invitation = OrcidInvitation.objects.get(employee_uid=user.employee_uid)
                 print(last_name)
                 user_link = user_invitation.link
-                context = {'link': user_link, 'gender': gender, 'gender_english': gender_english, 'user_last_name': last_name}
+                context = {'link': user_link, 'gender': gender, 'gender_english': gender_english,
+                           'user_last_name': last_name, 'saluation': salutation}
 
                 file_path = settings.BASE_DIR + "/public_api/templates/public_api/email_message.txt"
                 print("FILE PATH = ", file_path)
