@@ -51,7 +51,7 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
                 print(last_name)
                 user_link = user_invitation.link
                 context = {'link': user_link, 'gender': gender, 'gender_english': gender_english,
-                           'user_last_name': last_name, 'saluation': salutation}
+                           'user_last_name': last_name, 'salutation': salutation}
 
                 file_path = settings.BASE_DIR + "/public_api/templates/public_api/email_message.txt"
                 print("FILE PATH = ", file_path)
