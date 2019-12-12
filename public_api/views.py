@@ -289,7 +289,7 @@ def member_api_invitation_link_view(request, token):
 
             user_email = orcid_invitation_inst.employee_uid.mail
 
-            base_url = "https://sandbox.orcid.org/oauth/authorize?client_id=APP-8DI6P3MTH4TUOAQI&response_type=code&scope=/read-limited%20/activities/update%20/person/update&redirect_uri="+config('REDIRECT_URI')
+            base_url = "https://orcid.org/oauth/authorize?client_id=APP-7OW5CF8CGABFW73Z&response_type=code&scope=/read-limited%20/activities/update%20/person/update&redirect_uri="+config('REDIRECT_URI')
 
             family_name_url = "&family_names="+user_last_name
 
@@ -396,10 +396,10 @@ def member_api_success(request):
             print("Authorization code = ", auth_code)
             # Exchange the authorization code with ORCID API
 
-            API_ENDPOINT = "https://sandbox.orcid.org/oauth/token"
+            API_ENDPOINT = "https://orcid.org/oauth/token"
 
-            payload = {'client_id': config('MEMBER_CLIENT_ID'),
-                       'client_secret': config('MEMBER_CLIENT_SECRET'),
+            payload = {'client_id': config('CLIENT_ID'),
+                       'client_secret': config('CLIENT_SECRET'),
                        'grant_type': 'authorization_code',
                        'code': auth_code, 'redirect_uri': config('REDIRECT_URI')}
 
@@ -441,7 +441,7 @@ def member_api_success(request):
                                             full_name=data['name'],
                                             orcid=data['orcid'])
                     orcid_inst.save()
-                    sandbox_url = "https://sandbox.orcid.org/" + data["orcid"]
+                    sandbox_url = "https://orcid.org/" + data["orcid"]
                     return render(request, 'public_api/member_api_redirect.html', {'authorization_code': auth_code,
                                                                                    'fullname': data['name'],
                                                                                    "orcid": data['orcid'],

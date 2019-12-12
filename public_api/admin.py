@@ -1,22 +1,25 @@
 from django.contrib import admin
-from .models import OrcidInvitation, Employees
+from .models import OrcidInvitation, Employees, OrcidTable
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
 from orcid_project import settings
 from decouple import config
 
 class EmployeesAdmin(admin.ModelAdmin):
-    list_display = ['uid', 'gender', 'first_name', 'last_name', 'complete_name', 'mail', 'role', 'parent_inst']
-    list_filter = (('parent_inst'),)
+    list_display = ['uid', 'gender', 'first_name', 'last_name', 'complete_name', 'mail', 'role', 'parent_inst', 'parent_id']
+    list_filter = (('parent_id'),('parent_inst'),)
     search_fields = ['first_name', 'last_name', 'complete_name', 'mail', 'parent_inst']
-
+    
+class OrcidTableAdmin(admin.ModelAdmin):
+    list_display = ['id', 'access_token', 'token_type', 'refresh_token', 'expires_in', 'scope', 'full_name', 'orcid']
+    search_fields = ['id', 'full_name']
 
 class OrcidInvitationAdmin(admin.ModelAdmin):
     list_display = ['id', 'employee_uid', 'token', 'link_validated', 'email_sent', 'click_create_orcid',
                     'click_link_orcid', 'click_not_interested_orcid', 'have_orcid', 'message']
     list_filter = (('link_validated', admin.BooleanFieldListFilter), ('email_sent', admin.BooleanFieldListFilter),
-                   ('click_create_orcid', admin.BooleanFieldListFilter), ('click_link_orcid', admin.BooleanFieldListFilter))
-    search_fields = ['employee_uid__first_name', 'employee_uid__last_name', 'employee_uid__parent_inst']
+                   ('click_create_orcid', admin.BooleanFieldListFilter), ('click_link_orcid', admin.BooleanFieldListFilter), ('click_not_interested_orcid', admin.BooleanFieldListFilter), ('employee_uid__parent_id'), ('employee_uid__parent_inst'),)
+    search_fields = ['employee_uid__first_name', 'employee_uid__last_name', 'employee_uid__parent_inst', 'employee_uid__parent_id']
     actions = ['send_email']
 
     def send_email(self, request, queryset):
@@ -56,5 +59,6 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
 
 admin.site.register(OrcidInvitation, OrcidInvitationAdmin)
 admin.site.register(Employees, EmployeesAdmin)
+admin.site.register(OrcidTable, OrcidTableAdmin)
 
 # ['Institut für Physiologie'], ['GB IT - Abteilung Forschung & Lehre']

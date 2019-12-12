@@ -254,7 +254,7 @@
             $(".js-create-orcid").click(function () {
 
                 $.ajax({
-                    url: 'https://sandbox.orcid.org/userStatus.json?logUserOut=true',
+                    url: 'https://orcid.org/userStatus.json?logUserOut=true',
                     dataType: 'jsonp',
                     success: function(result,status,xhr) {
                         {#alert("Logged In: " + result.loggedIn);#}
@@ -271,7 +271,7 @@
             $(".js-link-orcid").click(function () {
 
                 $.ajax({
-                    url: 'https://sandbox.orcid.org/userStatus.json?logUserOut=true',
+                    url: 'https://orcid.org/userStatus.json?logUserOut=true',
                     dataType: 'jsonp',
                     success: function(result,status,xhr) {
                         {#alert("Logged In: " + result.loggedIn);#}
