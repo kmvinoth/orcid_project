@@ -1,6 +1,6 @@
 **english version below**
 
-    Liebe Wissenschaftlerinnen und Wissenschaftler der Charité,
+    Sehr geehrte {{ gender }}.{{user_last_name}}
 
      die Fakultät strebt an, dass jeder wissenschaftlichen Mitarbeiterin und jedem wissenschaftlichen Mitarbeiter der Charité eine ORCID-ID zugeordnet ist.
 
@@ -23,7 +23,7 @@
 
     <h2>English Version</h2>
 
-    Dear scientists of Charité,
+    Dear {{ gender_english }}.{{user_last_name}}
 
      The Faculty aims to assign an ORCID ID to every scientific associate of the Charité.
 

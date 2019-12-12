@@ -5,21 +5,24 @@ from django.template.loader import get_template
 from orcid_project import settings
 from decouple import config
 
+
 class EmployeesAdmin(admin.ModelAdmin):
     list_display = ['uid', 'gender', 'first_name', 'last_name', 'complete_name', 'mail', 'role', 'parent_inst', 'parent_id']
     list_filter = (('parent_id'),('parent_inst'),)
     search_fields = ['first_name', 'last_name', 'complete_name', 'mail', 'parent_inst']
-    
+
+
 class OrcidTableAdmin(admin.ModelAdmin):
     list_display = ['id', 'access_token', 'token_type', 'refresh_token', 'expires_in', 'scope', 'full_name', 'orcid']
     search_fields = ['id', 'full_name']
+
 
 class OrcidInvitationAdmin(admin.ModelAdmin):
     list_display = ['id', 'employee_uid', 'token', 'link_validated', 'email_sent', 'click_create_orcid',
                     'click_link_orcid', 'click_not_interested_orcid', 'have_orcid', 'message']
     list_filter = (('link_validated', admin.BooleanFieldListFilter), ('email_sent', admin.BooleanFieldListFilter),
                    ('click_create_orcid', admin.BooleanFieldListFilter), ('click_link_orcid', admin.BooleanFieldListFilter), ('click_not_interested_orcid', admin.BooleanFieldListFilter), ('employee_uid__parent_id'), ('employee_uid__parent_inst'),)
-    search_fields = ['employee_uid__first_name', 'employee_uid__last_name', 'employee_uid__parent_inst', 'employee_uid__parent_id']
+    # search_fields = ['employee_uid__first_name', 'employee_uid__last_name', 'employee_uid__parent_inst', 'employee_uid__parent_id']
     actions = ['send_email']
 
     def send_email(self, request, queryset):
@@ -28,6 +31,12 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
             # print(user.link)
             first_name = user.employee_uid.first_name
             last_name = user.employee_uid.last_name
+            gender = user.employee_uid.gender
+            gender_english = "Ms/Mr"
+            if gender == "Herr":
+                gender_english = "Mr"
+            if gender == "Frau":
+                gender_english = "Ms"
             # from_email = config('CHARITE_USER')
             subject = "Reg: Invitation to Create or Link Orcid to Charite"
             # message = "Hi ," + first_name + ", You have been invited by Charite to Create or link your Orcid. Click on the link to proceed further " + user.link
@@ -38,7 +47,7 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
                 user_invitation = OrcidInvitation.objects.get(employee_uid=user.employee_uid)
                 print(last_name)
                 user_link = user_invitation.link
-                context = {'link': user_link, 'user_last_name': last_name}
+                context = {'link': user_link, 'gender': gender, 'gender_english': gender_english, 'user_last_name': last_name}
 
                 file_path = settings.BASE_DIR + "/public_api/templates/public_api/email_message.txt"
                 print("FILE PATH = ", file_path)

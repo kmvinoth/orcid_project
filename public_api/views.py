@@ -322,7 +322,7 @@ def member_api_invitation_link_view(request, token):
                        }
 
             if request.GET.get('next') == personalized_orcid_url_without_login:
-                print("Clicked Create ORCID")
+                # print("Clicked Create ORCID")
                 orcid_invitation_inst.click_create_orcid = 1
 
                 orcid_invitation_inst.save()
@@ -334,7 +334,7 @@ def member_api_invitation_link_view(request, token):
                 return create_orcid_response
 
             if request.GET.get('next') == orcid_url_with_login:
-                print("Clicked Link ORCID")
+                # print("Clicked Link ORCID")
                 orcid_invitation_inst.click_link_orcid = 1
 
                 orcid_invitation_inst.save()
@@ -346,7 +346,7 @@ def member_api_invitation_link_view(request, token):
                 return link_orcid_response
 
             if request.GET.get('next') == 'not_interested':
-                print("Clicked Link Not Interested")
+                # print("Clicked Link Not Interested")
                 context['form_hidden'] = False
                 context['message'] = False
                 orcid_invitation_inst.click_not_interested_orcid = 1
@@ -362,14 +362,14 @@ def member_api_invitation_link_view(request, token):
                         orcid_invitation_inst.have_orcid = data['have_orcid']
                         orcid_invitation_inst.message = data['message']
                         orcid_invitation_inst.save()
-                        print("DATA = ", data)
+                        # print("DATA = ", data)
                         context['form_hidden'] = True
                         context['message'] = True
                         return render(request, 'public_api/member_api_invitation.html', context)
                     else:
-                        print("FORM INVALID")
-                        print("DATA = ", orcid_not_interested_form.data)
-                        print(orcid_not_interested_form.errors)
+                        # print("FORM INVALID")
+                        # print("DATA = ", orcid_not_interested_form.data)
+                        # print(orcid_not_interested_form.errors)
                         return render(request, 'public_api/member_api_invitation.html',
                                       {'errors': orcid_not_interested_form.errors})
 
@@ -393,7 +393,7 @@ def member_api_success(request):
         elif len(auth_code) > 6 or len(auth_code) < 6:
             errors.append("Length of the Authorization code is either greater than or less than 6")
         else:
-            print("Authorization code = ", auth_code)
+            # print("Authorization code = ", auth_code)
             # Exchange the authorization code with ORCID API
 
             API_ENDPOINT = "https://orcid.org/oauth/token"
@@ -411,18 +411,18 @@ def member_api_success(request):
 
                 status_code = response.status_code
 
-                print("STATUS CODE = ", status_code)
+                # print("STATUS CODE = ", status_code)
 
                 if response.status_code != 200:
-                    print("Error posting data to ORCiD sandbox")
+                    print("Error posting data to ORCiD")
 
-                    print("Message = ", response.text)
+                    # print("Message = ", response.text)
 
-                    print("Status code for post data = ", response.status_code)
+                    # print("Status code for post data = ", response.status_code)
 
                 if response.status_code == 200:
 
-                    print("Status code for post data = ", response.status_code)
+                    # print("Status code for post data = ", response.status_code)
 
                     # data is of type dict
                     data = response.json()
