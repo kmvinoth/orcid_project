@@ -18,12 +18,12 @@ orcid_project/__pycache__/
 public_api/__pycache__/
 public_api/migrations/__pycache__/
 public_api/migrations/*.py
-public_api/static/*
+#public_api/static/*
 
 rest/__pycache__/
 rest/migrations/__pycache__/
 rest/migrations/*.py
-static/*
+#static/*
 
 local_settings.py
 db.sqlite3
