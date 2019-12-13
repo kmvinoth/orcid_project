@@ -67,7 +67,7 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
                            'user_last_name': last_name, 'salutation': salutation}
 
                 file_path = settings.BASE_DIR + "/public_api/templates/public_api/email_message.txt"
-                print("FILE PATH = ", file_path)
+                # print("FILE PATH = ", file_path)
                 with open(file_path, encoding="utf-8") as f:
                     email_message = f.read()
                     message = EmailMultiAlternatives(subject=subject, body=email_message, from_email=sender, to=receiver)
