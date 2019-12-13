@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import OrcidInvitation, Employees, OrcidTable
+from .models import OrcidInvitation, Employees, OrcidTable, MappingEmployeePmid
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template
 from orcid_project import settings
@@ -18,13 +18,26 @@ class OrcidTableAdmin(admin.ModelAdmin):
 
 
 class OrcidInvitationAdmin(admin.ModelAdmin):
-    list_display = ['id', 'employee_uid', 'token', 'link_validated', 'email_sent', 'click_create_orcid',
-                    'click_link_orcid', 'click_not_interested_orcid', 'have_orcid', 'message']
+    list_display = ['id', 'employee_uid', 'link_validated', 'email_sent', 'click_create_orcid',
+                    'click_link_orcid', 'click_not_interested_orcid']
     list_filter = (('link_validated', admin.BooleanFieldListFilter), ('email_sent', admin.BooleanFieldListFilter),
                    ('click_create_orcid', admin.BooleanFieldListFilter), ('click_link_orcid', admin.BooleanFieldListFilter), ('click_not_interested_orcid', admin.BooleanFieldListFilter), ('employee_uid__parent_id'), ('employee_uid__parent_inst'),)
     search_fields = ['employee_uid__first_name', 'employee_uid__last_name', 'employee_uid__parent_inst', 'employee_uid__parent_id']
     actions = ['send_email']
 
+    def get_queryset(self, request):
+
+        mapping_employee_pmids = MappingEmployeePmid.objects.values('uid').distinct()
+
+        # print("DISTINCT count =", mapping_employee_pmids.count())
+
+        filtered_employees = Employees.objects.filter(uid__in=mapping_employee_pmids)
+
+        qs = OrcidInvitation.objects.filter(employee_uid__in=filtered_employees)
+
+        return qs
+
+    # qs is passed as queryset in the below method
     def send_email(self, request, queryset):
         for user in queryset:
             # print(user.employee_uid.first_name)

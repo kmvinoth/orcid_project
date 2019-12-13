@@ -88,3 +88,15 @@ class OrcidTable(models.Model):
         managed = False
         db_table = 'orcid_table'
         verbose_name_plural = 'orcid_table'
+
+
+class MappingEmployeePmid(models.Model):
+    pmid_pos = models.CharField(primary_key=True, max_length=50)
+    aid = models.BigIntegerField(blank=True, null=True)
+    uid = models.CharField(max_length=100, blank=True, null=True)
+    pmid = models.BigIntegerField(blank=True, null=True)
+    pos = models.CharField(max_length=4, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'mapping_employee_pmid'
