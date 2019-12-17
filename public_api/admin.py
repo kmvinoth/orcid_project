@@ -25,17 +25,17 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
     search_fields = ['employee_uid__first_name', 'employee_uid__last_name', 'employee_uid__parent_inst', 'employee_uid__parent_id']
     actions = ['send_email']
 
-    def get_queryset(self, request):
-
-        mapping_employee_pmids = MappingEmployeePmid.objects.values('uid').distinct()
-
-        # print("DISTINCT count =", mapping_employee_pmids.count())
-
-        filtered_employees = Employees.objects.filter(uid__in=mapping_employee_pmids)
-
-        qs = OrcidInvitation.objects.filter(employee_uid__in=filtered_employees)
-
-        return qs
+    # def get_queryset(self, request):
+    #
+    #     mapping_employee_pmids = MappingEmployeePmid.objects.values('uid').distinct()
+    #
+    #     # print("DISTINCT count =", mapping_employee_pmids.count())
+    #
+    #     filtered_employees = Employees.objects.filter(uid__in=mapping_employee_pmids)
+    #
+    #     qs = OrcidInvitation.objects.filter(employee_uid__in=filtered_employees)
+    #
+    #     return qs
 
     # qs is passed as queryset in the below method
     def send_email(self, request, queryset):
