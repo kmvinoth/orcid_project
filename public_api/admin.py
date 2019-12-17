@@ -9,7 +9,7 @@ from decouple import config
 class EmployeesAdmin(admin.ModelAdmin):
     list_display = ['uid', 'gender', 'first_name', 'last_name', 'complete_name', 'mail', 'role', 'parent_inst', 'parent_id']
     list_filter = (('parent_id'),('parent_inst'),)
-    search_fields = ['first_name', 'last_name', 'complete_name', 'mail', 'parent_inst']
+    search_fields = ['first_name', 'last_name', 'complete_name', 'role', 'mail', 'parent_inst']
 
 
 class OrcidTableAdmin(admin.ModelAdmin):
@@ -22,7 +22,8 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
                     'click_link_orcid', 'click_not_interested_orcid']
     list_filter = (('link_validated', admin.BooleanFieldListFilter), ('email_sent', admin.BooleanFieldListFilter),
                    ('click_create_orcid', admin.BooleanFieldListFilter), ('click_link_orcid', admin.BooleanFieldListFilter), ('click_not_interested_orcid', admin.BooleanFieldListFilter), ('employee_uid__parent_id'), ('employee_uid__parent_inst'),)
-    search_fields = ['employee_uid__first_name', 'employee_uid__last_name', 'employee_uid__parent_inst', 'employee_uid__parent_id']
+    search_fields = ['employee_uid__first_name', 'employee_uid__last_name', 'employee_uid__complete_name',
+                     'employee_uid__role', 'employee_uid__parent_inst', 'employee_uid__parent_id']
     actions = ['send_email']
 
     # def get_queryset(self, request):
