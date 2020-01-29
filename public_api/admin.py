@@ -55,7 +55,8 @@ class OrcidInvitationAdmin(admin.ModelAdmin):
                 gender_english = "Ms"
                 salutation = "geehrte"
             # from_email = config('CHARITE_USER')
-            subject = "Reg: Invitation to Create or Link Orcid to Charite"
+            # subject = "Reg: Invitation to Create or Link Orcid to Charite"
+            subject = "Remainder: Invitation to Create or Link Orcid to Charite"
             # message = "Hi ," + first_name + ", You have been invited by Charite to Create or link your Orcid. Click on the link to proceed further " + user.link
             sender = "orcid@charite.de"
             receiver = [user.employee_uid.mail]
